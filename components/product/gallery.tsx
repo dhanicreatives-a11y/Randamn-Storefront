@@ -21,7 +21,7 @@ export function Gallery({ product }: { product: Product }) {
   const previousImageIndex = imageIndex === 0 ? images.length - 1 : imageIndex - 1;
 
   const buttonClassName =
-    'h-full px-6 transition-all ease-in-out hover:scale-110 hover:text-black dark:hover:text-white flex items-center justify-center';
+    'h-full px-6 transition-all ease-in-out hover:scale-110 text-[#f5f5f5]/60 hover:text-[#f5f5f5] flex items-center justify-center';
 
   return (
     <form>
@@ -40,7 +40,7 @@ export function Gallery({ product }: { product: Product }) {
 
         {images.length > 1 ? (
           <div className="absolute bottom-[15%] flex w-full justify-center">
-            <div className="mx-auto flex h-11 items-center rounded-full border border-white bg-neutral-50/80 text-neutral-500 backdrop-blur dark:border-black dark:bg-neutral-900/80">
+            <div className="mx-auto flex h-11 items-center border border-[#f5f5f5]/20 bg-[#0d0d0d]/80 backdrop-blur">
               <button
                 formAction={() => {
                   const newState = updateImage(previousImageIndex.toString());
@@ -51,7 +51,7 @@ export function Gallery({ product }: { product: Product }) {
               >
                 <ArrowLeftIcon className="h-5" />
               </button>
-              <div className="mx-1 h-6 w-px bg-neutral-500"></div>
+              <div className="mx-1 h-6 w-px bg-[#f5f5f5]/20"></div>
               <button
                 formAction={() => {
                   const newState = updateImage(nextImageIndex.toString());

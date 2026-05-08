@@ -1,11 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+html {
+  color-scheme: dark;
+}
+
+body {
+  background-color: #0d0d0d;
+  color: #f5f5f5;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+::selection {
+  background-color: #a8192e;
+  color: #f5f5f5;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #a8192e #0d0d0d;
+}
+
+*::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #0d0d0d;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #a8192e;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
 @supports (font: -apple-system-body) and (-webkit-appearance: none) {
@@ -17,5 +51,17 @@
 a,
 input,
 button {
-  @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-400 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-50 dark:focus-visible:ring-neutral-600 dark:focus-visible:ring-offset-neutral-900;
+  @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#a8192e] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0d0d0d];
+}
+
+/* Asymmetric product grid — desktop only */
+@media (min-width: 768px) {
+  .randamn-grid > *:nth-child(5n + 1) {
+    grid-column: span 2;
+    aspect-ratio: 2 / 1;
+  }
+  .randamn-grid > *:nth-child(7n + 3) {
+    grid-column: span 2;
+    aspect-ratio: 2 / 1;
+  }
 }

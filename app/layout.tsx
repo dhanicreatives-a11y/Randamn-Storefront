@@ -56,7 +56,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
             })(window,document,'script','dataLayer','${GTM_ID}');`}
         </Script>
       </head>
-      <body className="bg-neutral-50 text-black selection:bg-teal-300 dark:bg-neutral-900 dark:text-white dark:selection:bg-pink-500 dark:selection:text-white">
+      <body className="bg-[#0d0d0d] text-[#f5f5f5]">
         {children}
       </body>
     </html>

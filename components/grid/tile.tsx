@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import Image from 'next/image';
-import Label from '../label';
+import Price from 'components/price';
 
 const useFourthwallImages = process.env.NEXT_PUBLIC_USE_FW_IMAGE_OPTIMIZATION === 'true';
 
@@ -21,18 +21,16 @@ export function GridTileImage({
   };
   transformedSrc?: string;
 } & React.ComponentProps<typeof Image>) {
-  const imageClassName = clsx('relative h-full w-full object-contain', {
-    'transition duration-300 ease-in-out group-hover:scale-105': isInteractive
+  const imageClassName = clsx('h-full w-full object-cover transition-opacity duration-300', {
+    'group-hover:opacity-60': isInteractive && label
   });
 
   return (
     <div
       className={clsx(
-        'group flex h-full w-full items-center justify-center overflow-hidden rounded-lg border bg-white hover:border-blue-600 dark:bg-black',
+        'group relative flex h-full w-full items-center justify-center overflow-hidden bg-[#0d0d0d]',
         {
-          relative: label,
-          'border-2 border-blue-600': active,
-          'border-neutral-200 dark:border-neutral-800': !active
+          'ring-2 ring-[#a8192e]': active
         }
       )}
     >
@@ -47,19 +45,19 @@ export function GridTileImage({
             loading={props.priority ? 'eager' : 'lazy'}
           />
         ) : (
-          <Image
-            className={imageClassName}
-            {...props}
-          />
+          <Image className={imageClassName} {...props} />
         )
       ) : null}
+
       {label ? (
-        <Label
-          title={label.title}
-          amount={label.amount}
-          currencyCode={label.currencyCode}
-          position={label.position}
-        />
+        <div className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+          <p className="px-4 text-center text-[13px] font-medium uppercase tracking-[0.15em] text-[#f5f5f5]">
+            {label.title}
+          </p>
+          <p className="mt-1 text-[12px] tracking-wide text-[#a8192e]">
+            <Price amount={label.amount} currencyCode={label.currencyCode} />
+          </p>
+        </div>
       ) : null}
     </div>
   );

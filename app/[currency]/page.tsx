@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
-import { Carousel } from 'components/carousel';
-import { ThreeItemGrid } from 'components/grid/three-items';
-import Footer from 'components/layout/footer';
+import Image from 'next/image';
+import { ProductGrid } from 'components/grid/product-grid';
 import { Wrapper } from 'components/wrapper';
 import { getShop, getShopOgImage } from 'lib/fourthwall';
 
@@ -10,14 +9,11 @@ export function generateStaticParams() {
 }
 
 export async function generateMetadata(): Promise<Metadata> {
-  const [ogImageUrl, shop] = await Promise.all([
-    getShopOgImage(),
-    getShop()
-  ]);
+  const [ogImageUrl, shop] = await Promise.all([getShopOgImage(), getShop()]);
 
   return {
     title: shop.name,
-    description: 'High-performance ecommerce store built with Next.js, Vercel, and Fourthwall.',
+    description: 'Nothing is planned. Everything is real.',
     openGraph: {
       type: 'website',
       images: ogImageUrl ? [{ url: ogImageUrl }] : undefined
@@ -35,9 +31,20 @@ export default async function HomePage({ params }: { params: Promise<{ currency:
 
   return (
     <Wrapper currency={currency} shop={shop}>
-      <ThreeItemGrid currency={currency} />
-      <Carousel currency={currency} />
-      <Footer />
+      <section className="flex h-screen flex-col items-center justify-center bg-[#0d0d0d]">
+        <Image
+          src="/logo-full.png"
+          alt="RANDAMN"
+          width={800}
+          height={220}
+          className="w-[40vw] max-w-[600px] min-w-[240px] object-contain"
+          priority
+        />
+        <p className="mt-6 text-[13px] uppercase tracking-[0.3em] text-[#a8192e]">
+          NOTHING IS PLANNED. EVERYTHING IS REAL.
+        </p>
+      </section>
+      <ProductGrid currency={currency} />
     </Wrapper>
   );
 }

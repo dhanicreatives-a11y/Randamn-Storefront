@@ -1,6 +1,5 @@
 'use client';
 
-import { PlusIcon } from '@heroicons/react/24/outline';
 import clsx from 'clsx';
 import { addItem } from 'components/cart/actions';
 import { useProduct } from 'components/product/product-context';
@@ -10,6 +9,10 @@ import { Product, ProductVariant } from 'lib/types';
 import { useActionState } from 'react';
 import { useCart } from './cart-context';
 
+const buttonBase =
+  'relative flex w-full items-center justify-center bg-[#a8192e] px-6 py-4 text-sm font-medium uppercase tracking-widest text-[#f5f5f5] transition-colors duration-200 hover:bg-[#f5f5f5] hover:text-[#a8192e]';
+const disabledClasses = 'cursor-not-allowed opacity-50 hover:bg-[#a8192e] hover:text-[#f5f5f5]';
+
 function SubmitButton({
   availableForSale,
   selectedVariantId
@@ -17,13 +20,9 @@ function SubmitButton({
   availableForSale: boolean;
   selectedVariantId: string | undefined;
 }) {
-  const buttonClasses =
-    'relative flex w-full items-center justify-center rounded-full bg-blue-600 p-4 tracking-wide text-white';
-  const disabledClasses = 'cursor-not-allowed opacity-60 hover:opacity-60';
-
   if (!availableForSale) {
     return (
-      <button disabled className={clsx(buttonClasses, disabledClasses)}>
+      <button disabled className={clsx(buttonBase, disabledClasses)}>
         Out Of Stock
       </button>
     );
@@ -31,29 +30,14 @@ function SubmitButton({
 
   if (!selectedVariantId) {
     return (
-      <button
-        aria-label="Please select an option"
-        disabled
-        className={clsx(buttonClasses, disabledClasses)}
-      >
-        <div className="absolute left-0 ml-4">
-          <PlusIcon className="h-5" />
-        </div>
-        Add To Cart
+      <button aria-label="Please select an option" disabled className={clsx(buttonBase, disabledClasses)}>
+        Select an Option
       </button>
     );
   }
 
   return (
-    <button
-      aria-label="Add to cart"
-      className={clsx(buttonClasses, {
-        'hover:opacity-90': true
-      })}
-    >
-      <div className="absolute left-0 ml-4">
-        <PlusIcon className="h-5" />
-      </div>
+    <button aria-label="Add to cart" className={buttonBase}>
       Add To Cart
     </button>
   );

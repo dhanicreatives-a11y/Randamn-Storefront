@@ -6,7 +6,15 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['var(--font-geist-sans)']
+        sans: ['Space Grotesk', 'sans-serif']
+      },
+      colors: {
+        ...require('tailwindcss/colors'),
+        brand: {
+          red: '#A8192E',
+          black: '#0D0D0D',
+          white: '#F5F5F5'
+        }
       },
       keyframes: {
         fadeIn: {
