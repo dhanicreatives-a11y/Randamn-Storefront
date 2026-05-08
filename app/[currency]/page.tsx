@@ -1,4 +1,3 @@
-export const revalidate = 0;
 import type { Metadata } from 'next';
 import { Carousel } from 'components/carousel';
 import { ThreeItemGrid } from 'components/grid/three-items';
