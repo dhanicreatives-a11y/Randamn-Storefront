@@ -36,6 +36,18 @@ export async function Navbar({ currency }: { currency: string }) {
           className="block md:hidden"
         />
       </Link>
+      <Link
+        href={`/${currency}/about`}
+        prefetch={true}
+        style={{
+          fontSize: 10,
+          textTransform: 'uppercase',
+          letterSpacing: '0.2em',
+          color: '#555'
+        }}
+      >
+        about
+      </Link>
       <div style={{ color: '#A8192E' }}>
         <CartModal />
       </div>
