@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Grid from "components/grid";
 import Collections from "components/layout/collections";
-import Footer from "components/layout/footer";
 import ProductGridItems from "components/layout/product-grid-items";
 import { Wrapper } from "components/wrapper";
 import { getCollectionProducts, getCollections, getShop, getShopOgImage } from "lib/fourthwall";
@@ -73,7 +72,6 @@ export default async function CategoryPage({
           </section>
         </div>
       </div>
-      <Footer />
     </Wrapper>
   );
 }

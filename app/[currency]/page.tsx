@@ -128,6 +128,30 @@ export default async function HomePage({ params }: { params: Promise<{ currency:
       >
         <ProductGrid currency={currency} />
       </div>
+
+      <div style={{
+        padding: '60px 24px',
+        borderTop: '1px solid #1a1a1a'
+      }}>
+        <p style={{
+          fontSize: 'clamp(20px,3vw,36px)',
+          fontWeight: 900,
+          color: '#F5F5F5',
+          lineHeight: 1.1,
+          letterSpacing: '-0.02em'
+        }}>
+          the universe began from a{' '}
+          <span style={{color:'#A8192E'}}>random accident.</span>
+          <br/>so did this.
+        </p>
+        <p style={{
+          fontSize: 9,
+          color: '#444',
+          letterSpacing: '0.2em',
+          textTransform: 'uppercase',
+          marginTop: 16
+        }}>— randamn, london</p>
+      </div>
     </Wrapper>
   );
 }

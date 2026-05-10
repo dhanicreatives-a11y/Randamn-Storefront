@@ -1,5 +1,4 @@
 import { notFound } from 'next/navigation';
-import Footer from 'components/layout/footer';
 import Prose from 'components/prose';
 import { Wrapper } from 'components/wrapper';
 import { getShop, getStaticPage } from 'lib/fourthwall';
@@ -29,7 +28,6 @@ export default async function StaticPage({ params }: { params: Promise<{ handle:
       <div className="mx-auto max-w-4xl px-4 py-12">
         <Prose html={page.bodyHtml} />
       </div>
-      <Footer />
     </Wrapper>
   );
 }
