@@ -7,27 +7,34 @@ import { VariantSelector } from './variant-selector';
 export function ProductDescription({ product }: { product: Product }) {
   return (
     <>
-      <div className="mb-8 border-b border-[#f5f5f5]/10 pb-8">
-        <h1
-          className="mb-4 font-medium uppercase tracking-tight text-[#f5f5f5] leading-none"
-          style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)' }}
-        >
+      <div style={{ marginBottom: 32 }}>
+        <h1 style={{
+          fontSize: 'clamp(28px, 4vw, 52px)',
+          fontWeight: 900,
+          color: '#F5F5F5',
+          letterSpacing: '-0.02em',
+          marginBottom: 8,
+          lineHeight: 1
+        }}>
           {product.title}
         </h1>
-        <p className="text-[#a8192e] text-xl font-medium">
+        <p style={{ fontSize: 16, color: '#A8192E', marginBottom: 32 }}>
           <Price
             amount={product.priceRange.maxVariantPrice.amount}
             currencyCode={product.priceRange.maxVariantPrice.currencyCode}
           />
         </p>
       </div>
+
       <VariantSelector options={product.options} variants={product.variants} />
+
       {product.descriptionHtml ? (
         <Prose
           className="mb-8 text-sm leading-relaxed text-[#f5f5f5]/70"
           html={product.descriptionHtml}
         />
       ) : null}
+
       <AddToCart product={product} />
     </>
   );

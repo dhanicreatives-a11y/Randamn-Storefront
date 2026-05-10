@@ -1,6 +1,5 @@
 'use client';
 
-import clsx from 'clsx';
 import { addItem } from 'components/cart/actions';
 import { useProduct } from 'components/product/product-context';
 import { useShop } from 'components/shop/shop-context';
@@ -9,9 +8,26 @@ import { Product, ProductVariant } from 'lib/types';
 import { useActionState } from 'react';
 import { useCart } from './cart-context';
 
-const buttonBase =
-  'relative flex w-full items-center justify-center bg-[#a8192e] px-6 py-4 text-sm font-medium uppercase tracking-widest text-[#f5f5f5] transition-colors duration-200 hover:bg-[#f5f5f5] hover:text-[#a8192e]';
-const disabledClasses = 'cursor-not-allowed opacity-50 hover:bg-[#a8192e] hover:text-[#f5f5f5]';
+const btnStyle: React.CSSProperties = {
+  width: '100%',
+  background: '#A8192E',
+  color: '#F5F5F5',
+  border: 'none',
+  borderRadius: 0,
+  padding: '16px',
+  fontSize: 12,
+  fontWeight: 700,
+  letterSpacing: '0.2em',
+  textTransform: 'uppercase',
+  cursor: 'pointer',
+  transition: 'background 0.2s, color 0.2s'
+};
+
+const disabledStyle: React.CSSProperties = {
+  ...btnStyle,
+  opacity: 0.45,
+  cursor: 'not-allowed'
+};
 
 function SubmitButton({
   availableForSale,
@@ -22,7 +38,7 @@ function SubmitButton({
 }) {
   if (!availableForSale) {
     return (
-      <button disabled className={clsx(buttonBase, disabledClasses)}>
+      <button disabled style={disabledStyle}>
         Out Of Stock
       </button>
     );
@@ -30,14 +46,25 @@ function SubmitButton({
 
   if (!selectedVariantId) {
     return (
-      <button aria-label="Please select an option" disabled className={clsx(buttonBase, disabledClasses)}>
+      <button disabled style={disabledStyle}>
         Select an Option
       </button>
     );
   }
 
   return (
-    <button aria-label="Add to cart" className={buttonBase}>
+    <button
+      aria-label="Add to cart"
+      style={btnStyle}
+      onMouseEnter={(e) => {
+        (e.currentTarget as HTMLButtonElement).style.background = '#F5F5F5';
+        (e.currentTarget as HTMLButtonElement).style.color = '#A8192E';
+      }}
+      onMouseLeave={(e) => {
+        (e.currentTarget as HTMLButtonElement).style.background = '#A8192E';
+        (e.currentTarget as HTMLButtonElement).style.color = '#F5F5F5';
+      }}
+    >
       Add To Cart
     </button>
   );

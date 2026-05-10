@@ -89,17 +89,33 @@ export default async function ProductPage({
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }}
           />
-          <div className="flex flex-col lg:flex-row min-h-[calc(100vh-4rem)]">
-            <div className="relative lg:w-3/5 aspect-square lg:aspect-auto lg:sticky lg:top-16 lg:h-[calc(100vh-4rem)] overflow-hidden bg-[#0d0d0d]">
-              <Suspense
-                fallback={
-                  <div className="relative aspect-square h-full w-full overflow-hidden" />
-                }
-              >
+          <div style={{ display: 'flex', flexWrap: 'wrap', width: '100%' }}>
+            {/* Left: image — 55% desktop, full width mobile */}
+            <div style={{
+              width: '55%',
+              minWidth: 300,
+              flex: '1 1 300px',
+              position: 'relative',
+              minHeight: '90vh',
+              overflow: 'hidden',
+              background: '#0d0d0d'
+            }}>
+              <Suspense fallback={<div style={{ minHeight: '90vh', background: '#0d0d0d' }} />}>
                 <Gallery product={product} />
               </Suspense>
             </div>
-            <div className="lg:w-2/5 px-8 py-10 lg:px-12 lg:py-16 bg-[#0d0d0d]">
+
+            {/* Right: details — 45% desktop, full width mobile */}
+            <div style={{
+              width: '45%',
+              minWidth: 300,
+              flex: '1 1 300px',
+              padding: '40px 32px',
+              background: '#0d0d0d',
+              position: 'sticky',
+              top: 0,
+              alignSelf: 'flex-start'
+            }}>
               <Suspense fallback={null}>
                 <ProductDescription product={product} />
               </Suspense>
