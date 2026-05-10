@@ -4,28 +4,41 @@ import Link from 'next/link';
 
 export async function Navbar({ currency }: { currency: string }) {
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-5 py-3 bg-[#0d0d0d]">
-      <Link href={`/${currency}`} prefetch={true} className="flex items-center">
-        <Image
-          src="/logo-icon.png"
-          alt="RANDAMN"
-          width={44}
-          height={44}
-          priority
-          className="block md:hidden"
-          style={{ width: '44px', height: 'auto', objectFit: 'contain' }}
-        />
+    <nav
+      style={{
+        width: '100%',
+        background: '#0d0d0d',
+        padding: '16px 20px',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between'
+      }}
+    >
+      <Link href={`/${currency}`} prefetch={true}>
+        {/* Desktop: full logo */}
         <Image
           src="/logo-full.png"
-          alt="RANDAMN"
+          alt="Randamn"
           width={140}
           height={40}
           priority
+          style={{ objectFit: 'contain', display: 'block' }}
           className="hidden md:block"
-          style={{ width: '140px', height: 'auto', objectFit: 'contain' }}
+        />
+        {/* Mobile: icon logo */}
+        <Image
+          src="/logo-icon.png"
+          alt="Randamn"
+          width={36}
+          height={36}
+          priority
+          style={{ objectFit: 'contain', display: 'block' }}
+          className="block md:hidden"
         />
       </Link>
-      <CartModal />
+      <div style={{ color: '#A8192E' }}>
+        <CartModal />
+      </div>
     </nav>
   );
 }
