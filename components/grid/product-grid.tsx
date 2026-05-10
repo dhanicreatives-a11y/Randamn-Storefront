@@ -11,20 +11,21 @@ export async function ProductGrid({ currency }: { currency: string }) {
   if (!products.length) return null;
 
   return (
-    <section className="grid grid-cols-2 md:grid-cols-4 gap-[1px] randamn-grid">
-      {products.map((product) => (
+    <>
+      {products.map((product, index) => (
         <Link
           key={product.handle}
           href={`/${currency}/product/${product.handle}`}
           prefetch={true}
-          className="relative block aspect-square"
+          style={{ display: 'block', position: 'relative' }}
         >
           <GridTileImage
             src={product.featuredImage.url}
             transformedSrc={product.featuredImage.transformedUrl}
             fill
-            sizes="(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 50vw"
+            sizes="(min-width: 1024px) 33vw, 50vw"
             alt={product.title}
+            index={index}
             label={{
               title: product.title,
               amount: product.priceRange.maxVariantPrice.amount,
@@ -33,6 +34,6 @@ export async function ProductGrid({ currency }: { currency: string }) {
           />
         </Link>
       ))}
-    </section>
+    </>
   );
 }

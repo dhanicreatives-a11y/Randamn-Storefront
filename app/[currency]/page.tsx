@@ -114,7 +114,20 @@ export default async function HomePage({ params }: { params: Promise<{ currency:
         just drops &nbsp;*&nbsp; no rules &nbsp;*&nbsp; wear the accident
       </div>
 
-      <ProductGrid currency={currency} />
+      <style>{`
+        .pg-wrap > a:nth-child(3n+1) { grid-column: span 2 }
+        .pg-wrap > a:nth-child(3n+2) { grid-column: span 1 }
+      `}</style>
+      <div
+        className="pg-wrap"
+        style={{
+          display: 'grid',
+          gridTemplateColumns: '1fr 1fr 1fr',
+          gridAutoRows: '280px'
+        }}
+      >
+        <ProductGrid currency={currency} />
+      </div>
     </Wrapper>
   );
 }
