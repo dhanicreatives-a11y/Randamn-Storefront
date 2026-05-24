@@ -4,7 +4,7 @@ import { Wrapper } from 'components/wrapper';
 import { getShop, getShopOgImage } from 'lib/fourthwall';
 
 export function generateStaticParams() {
-  return [{ currency: 'USD' }, { currency: 'EUR' }, { currency: 'GBP' }, { currency: 'CAD' }];
+  return [{ currency: 'GBP' }, { currency: 'EUR' }, { currency: 'USD' }, { currency: 'CAD' }];
 }
 
 export async function generateMetadata(): Promise<Metadata> {

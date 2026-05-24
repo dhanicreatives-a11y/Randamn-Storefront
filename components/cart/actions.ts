@@ -20,7 +20,7 @@ async function setCartId(cartId: string) {
 
 export async function addItem(prevState: any, selectedVariantId: string | undefined) {
   try {
-    const cart = await getCart(await getCartId(), 'USD') || (await createCartAndSetCookie());
+    const cart = await getCart(await getCartId(), 'GBP') || (await createCartAndSetCookie());
     const cartId = cart.id!!;
 
     if (!cart || !selectedVariantId) {
@@ -36,7 +36,7 @@ export async function addItem(prevState: any, selectedVariantId: string | undefi
 
 export async function removeItem(prevState: any, merchandiseId: string) {
   try {
-    const cart = await getCart(await getCartId(), 'USD') || (await createCartAndSetCookie());
+    const cart = await getCart(await getCartId(), 'GBP') || (await createCartAndSetCookie());
     const cartId = cart.id!!;
 
     if (!cart) {
@@ -66,7 +66,7 @@ export async function updateItemQuantity(
   const { merchandiseId, quantity } = payload;
 
   try {
-    const cart = await getCart(await getCartId(), 'USD') || (await createCartAndSetCookie());
+    const cart = await getCart(await getCartId(), 'GBP') || (await createCartAndSetCookie());
     const cartId = cart.id!!;
 
     if (!cart) {
@@ -122,7 +122,7 @@ export async function createCartAndSetCookie() {
   return cart;
 }
 
-export async function fetchCart(currency: string = 'USD') {
+export async function fetchCart(currency: string = 'GBP') {
   const cartId = await getCartId();
   if (!cartId) {
     return undefined;

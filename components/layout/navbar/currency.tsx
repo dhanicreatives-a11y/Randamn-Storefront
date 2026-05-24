@@ -3,9 +3,9 @@
 import { useState } from "react";
 
 const Currencies = [
-  'USD',
-  'EUR',
   'GBP',
+  'EUR',
+  'USD',
   'CAD',
   'AUD',
   'JPY',

@@ -9,7 +9,7 @@ export default async function ProductRedirect({
 }) {
   const { handle } = await params;
   const { currency, ...rest } = await searchParams;
-  const targetCurrency = currency || 'USD';
+  const targetCurrency = currency || 'GBP';
 
   const remainingParams = new URLSearchParams();
   for (const [key, value] of Object.entries(rest)) {

@@ -79,7 +79,7 @@ function createOrUpdateCartItem(
 function updateCartTotals(lines: CartItem[]): Pick<Cart, 'totalQuantity' | 'cost'> {
   const totalQuantity = lines.reduce((sum, item) => sum + item.quantity, 0);
   const totalAmount = lines.reduce((sum, item) => sum + Number(item.cost.totalAmount.amount), 0);
-  const currencyCode = lines[0]?.cost.totalAmount.currencyCode ?? 'USD';
+  const currencyCode = lines[0]?.cost.totalAmount.currencyCode ?? 'GBP';
 
   return {
     totalQuantity,
@@ -95,10 +95,10 @@ function createEmptyCart(): Cart {
     id: undefined,
     totalQuantity: 0,
     lines: [],
-    currency: 'USD',
+    currency: 'GBP',
     cost: {
-      subtotalAmount: { amount: '0', currencyCode: 'USD' },
-      totalAmount: { amount: '0', currencyCode: 'USD' },
+      subtotalAmount: { amount: '0', currencyCode: 'GBP' },
+      totalAmount: { amount: '0', currencyCode: 'GBP' },
     }
   };
 }
@@ -147,7 +147,7 @@ function cartReducer(state: Cart | undefined, action: CartAction): Cart {
 
 export function CartProvider({
   children,
-  currency = 'USD',
+  currency = 'GBP',
 }: {
   children: React.ReactNode;
   currency?: string;
