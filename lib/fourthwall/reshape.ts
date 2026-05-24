@@ -49,7 +49,7 @@ export const reshapeProduct = (product: FourthwallProduct): Product | undefined 
   const minPrice = Math.min(...variants.map((v) => v.unitPrice.value));
   const maxPrice = Math.max(...variants.map((v) => v.unitPrice.value));
 
-  const currencyCode = variants[0]?.unitPrice.currency || 'USD';
+  const currencyCode = variants[0]?.unitPrice.currency || 'GBP';
   const attributes = variants.map((v) => (v.attributes))
 
   const sizes = new Set(attributes.filter((a) => !!a.size).map((v) => v.size?.name));
@@ -158,7 +158,7 @@ const reshapeCartItem = (item: FourthwallCartItem): CartItem => {
 
 export const reshapeCart = (cart: FourthwallCart): Cart => {
   const totalValue = cart.items.map((item) => item.quantity * item.variant.unitPrice.value).reduce((a, b) => a + b, 0);
-  const currencyCode = cart.items[0]?.variant.unitPrice.currency || 'USD';
+  const currencyCode = cart.items[0]?.variant.unitPrice.currency || 'GBP';
 
   return {
     ...cart,
