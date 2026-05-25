@@ -40,6 +40,22 @@ export default async function HomePage({ params }: { params: Promise<{ currency:
         padding: '40px 24px'
       }}>
 
+        {/* hero background image */}
+        <img
+          src="/hero.jpg"
+          alt=""
+          style={{
+            position: 'absolute',
+            inset: 0,
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            objectPosition: 'center top',
+            opacity: 0.75,
+            zIndex: 0
+          }}
+        />
+
         {/* giant ghost text */}
         <div style={{
           position: 'absolute',
