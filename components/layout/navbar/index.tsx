@@ -5,8 +5,12 @@ export async function Navbar({ currency }: { currency: string }) {
   return (
     <nav
       style={{
-        width: '100%',
-        background: '#0d0d0d',
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        right: 0,
+        zIndex: 10,
+        background: 'transparent',
         padding: '16px 20px',
         display: 'flex',
         alignItems: 'center',
@@ -14,7 +18,6 @@ export async function Navbar({ currency }: { currency: string }) {
       }}
     >
       <Link href={`/${currency}`} prefetch={true}>
-        {/* Desktop: full white logo */}
         <img
           src="/Logo-full%20white.png"
           alt="Randamn"
@@ -24,19 +27,6 @@ export async function Navbar({ currency }: { currency: string }) {
             objectFit: 'contain',
             display: 'block'
           }}
-          className="hidden md:block"
-        />
-        {/* Mobile: icon logo */}
-        <img
-          src="/logo-icon.png"
-          alt="Randamn"
-          style={{
-            width: 36,
-            height: 'auto',
-            objectFit: 'contain',
-            display: 'block'
-          }}
-          className="block md:hidden"
         />
       </Link>
       <Link

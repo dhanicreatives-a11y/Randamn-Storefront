@@ -19,7 +19,7 @@ export function Wrapper({
     <ShopProvider shop={shop}>
       <CartProvider currency={currency}>
         <Navbar currency={currency} />
-        <main className="pt-16">
+        <main>
           {children}
           <Toaster closeButton />
           <WelcomeToast />
