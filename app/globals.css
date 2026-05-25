@@ -6,8 +6,6 @@
 
 html {
   color-scheme: dark;
-  scrollbar-width: thin;
-  scrollbar-color: #A8192E #0d0d0d;
 }
 
 body {
@@ -24,19 +22,6 @@ body {
 a {
   color: inherit;
   text-decoration: none;
-}
-
-*::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
-}
-
-*::-webkit-scrollbar-track {
-  background: #0d0d0d;
-}
-
-*::-webkit-scrollbar-thumb {
-  background-color: #A8192E;
 }
 
 @supports (font: -apple-system-body) and (-webkit-appearance: none) {

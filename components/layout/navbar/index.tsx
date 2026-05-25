@@ -1,5 +1,4 @@
 import CartModal from 'components/cart/modal';
-import Image from 'next/image';
 import Link from 'next/link';
 
 export async function Navbar({ currency }: { currency: string }) {
@@ -15,24 +14,28 @@ export async function Navbar({ currency }: { currency: string }) {
       }}
     >
       <Link href={`/${currency}`} prefetch={true}>
-        {/* Desktop: full logo */}
-        <Image
-          src="/logo-full.png"
+        {/* Desktop: full white logo */}
+        <img
+          src="/logo-full white.png"
           alt="Randamn"
-          width={140}
-          height={40}
-          priority
-          style={{ objectFit: 'contain', display: 'block' }}
+          style={{
+            width: 140,
+            height: 'auto',
+            objectFit: 'contain',
+            display: 'block'
+          }}
           className="hidden md:block"
         />
         {/* Mobile: icon logo */}
-        <Image
+        <img
           src="/logo-icon.png"
           alt="Randamn"
-          width={36}
-          height={36}
-          priority
-          style={{ objectFit: 'contain', display: 'block' }}
+          style={{
+            width: 36,
+            height: 'auto',
+            objectFit: 'contain',
+            display: 'block'
+          }}
           className="block md:hidden"
         />
       </Link>
