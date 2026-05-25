@@ -3,6 +3,7 @@ import Price from 'components/price';
 import Prose from 'components/prose';
 import { Product } from 'lib/types';
 import { VariantSelector } from './variant-selector';
+import { ProductAccordions } from './product-accordions';
 
 export function ProductDescription({ product }: { product: Product }) {
   return (
@@ -36,6 +37,8 @@ export function ProductDescription({ product }: { product: Product }) {
       ) : null}
 
       <AddToCart product={product} />
+
+      <ProductAccordions descriptionHtml={product.descriptionHtml} />
     </>
   );
 }
