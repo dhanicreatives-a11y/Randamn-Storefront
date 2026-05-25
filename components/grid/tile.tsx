@@ -70,18 +70,25 @@ export function GridTileImage({
       )}
 
       {label && (
-        <div className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+        <div style={{
+          position: 'absolute',
+          bottom: 0,
+          left: 0,
+          right: 0,
+          background: 'linear-gradient(to bottom, transparent, rgba(0,0,0,0.9))',
+          padding: '12px 14px',
+          pointerEvents: 'none'
+        }}>
           <p style={{
-            fontSize: 12,
+            fontSize: 13,
             color: '#F5F5F5',
+            fontWeight: 700,
             textTransform: 'uppercase',
-            letterSpacing: '0.1em',
-            textAlign: 'center',
-            padding: '0 16px'
+            letterSpacing: '0.08em'
           }}>
             {label.title}
           </p>
-          <p style={{ fontSize: 11, color: '#A8192E', marginTop: 4 }}>
+          <p style={{ fontSize: 12, color: '#A8192E', marginTop: 4 }}>
             <Price amount={label.amount} currencyCode={label.currencyCode} />
           </p>
         </div>
