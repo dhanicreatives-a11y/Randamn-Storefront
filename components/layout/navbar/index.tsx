@@ -16,7 +16,7 @@ export async function Navbar({ currency }: { currency: string }) {
       <Link href={`/${currency}`} prefetch={true}>
         {/* Desktop: full white logo */}
         <img
-          src="/logo-full white.png"
+          src="/logo-full%20white.png"
           alt="Randamn"
           style={{
             width: 140,
