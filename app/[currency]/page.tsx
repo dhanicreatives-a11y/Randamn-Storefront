@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { HeroSection } from 'components/hero-section';
 import { ProductGrid } from 'components/grid/product-grid';
 import { Wrapper } from 'components/wrapper';
 import { getShop, getShopOgImage } from 'lib/fourthwall';
@@ -30,89 +31,7 @@ export default async function HomePage({ params }: { params: Promise<{ currency:
 
   return (
     <Wrapper currency={currency} shop={shop}>
-      <section style={{
-        position: 'relative',
-        height: '100vh',
-        background: '#0d0d0d',
-        overflow: 'hidden',
-        display: 'flex',
-        alignItems: 'flex-end',
-        padding: '40px 24px'
-      }}>
-
-        {/* hero background image */}
-        <img
-          src="/hero.jpeg"
-          alt=""
-          style={{
-            position: 'absolute',
-            inset: 0,
-            width: '100%',
-            height: '100%',
-            objectFit: 'cover',
-            objectPosition: 'center top',
-            opacity: 0.75,
-            zIndex: 0
-          }}
-        />
-
-        {/* giant ghost text */}
-        <div style={{
-          position: 'absolute',
-          top: '50%',
-          left: '50%',
-          transform: 'translate(-50%, -50%)',
-          fontSize: '18vw',
-          fontWeight: 900,
-          color: '#F5F5F5',
-          opacity: 0.04,
-          letterSpacing: '-0.04em',
-          whiteSpace: 'nowrap',
-          pointerEvents: 'none',
-          userSelect: 'none'
-        }}>RANDAMN</div>
-
-        {/* red splatter top right */}
-        <svg style={{position:'absolute',top:24,right:24,width:80,height:80}} viewBox="0 0 100 100">
-          <path fill="#A8192E" d="M50 8C56 4,64 10,68 7C72 4,74 14,80 16C86 18,84 28,88 33C92 38,86 44,86 50C86 56,92 62,88 67C84 72,86 82,80 84C74 86,72 96,68 93C64 90,56 96,50 92C44 88,36 94,32 90C28 86,26 76,20 74C14 72,16 62,12 57C8 52,14 44,14 38C14 32,8 24,14 20C20 16,18 6,24 8C30 10,32 2,38 6C44 10,44 4,50 8Z"/>
-        </svg>
-
-        {/* bottom left text */}
-        <div style={{position:'relative',zIndex:2}}>
-          <p style={{
-            fontSize: 10,
-            color: '#A8192E',
-            letterSpacing: '0.3em',
-            textTransform: 'uppercase',
-            marginBottom: 12
-          }}>est. from a cosmic accident</p>
-          <h1 style={{
-            fontSize: 'clamp(36px, 7vw, 80px)',
-            fontWeight: 900,
-            color: '#F5F5F5',
-            lineHeight: 0.9,
-            letterSpacing: '-0.03em',
-            transform: 'rotate(-1.5deg)',
-            display: 'inline-block'
-          }}>life is<br/><span style={{color:'#A8192E'}}>#RanDamn</span></h1>
-        </div>
-
-        {/* bottom right drop counter */}
-        <div style={{
-          position: 'absolute',
-          bottom: 40,
-          right: 24,
-          border: '1px solid #222',
-          padding: '12px 16px',
-          textAlign: 'right',
-          transform: 'rotate(2deg)'
-        }}>
-          <p style={{fontSize:9,color:'#444',letterSpacing:'0.2em',textTransform:'uppercase'}}>latest drop</p>
-          <p style={{fontSize:32,fontWeight:900,color:'#F5F5F5',lineHeight:1}}>001</p>
-          <p style={{fontSize:9,color:'#A8192E',letterSpacing:'0.1em'}}>no schedule. ever.</p>
-        </div>
-
-      </section>
+      <HeroSection />
 
       {/* ticker strip */}
       <div style={{
