@@ -42,7 +42,7 @@ export default async function HomePage({ params }: { params: Promise<{ currency:
 
         {/* hero background image */}
         <img
-          src="/hero.jpg"
+          src="/hero.jpeg"
           alt=""
           style={{
             position: 'absolute',
