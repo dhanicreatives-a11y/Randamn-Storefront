@@ -58,7 +58,7 @@ export default async function HomePage({ params }: { params: Promise<{ currency:
         style={{
           display: 'grid',
           gridTemplateColumns: '1fr 1fr 1fr',
-          gridAutoRows: '280px'
+          gridAutoRows: '420px'
         }}
       >
         <ProductGrid currency={currency} />

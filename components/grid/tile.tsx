@@ -25,7 +25,7 @@ export function GridTileImage({
 } & React.ComponentProps<typeof Image>) {
   const showNew = label && index !== undefined && index % 2 === 0;
 
-  const imgClass = clsx('h-full w-full object-cover transition-opacity duration-300', {
+  const imgClass = clsx('h-full w-full object-contain transition-opacity duration-300', {
     'group-hover:opacity-50': isInteractive && label
   });
 
@@ -35,7 +35,7 @@ export function GridTileImage({
         'group relative flex h-full w-full items-center justify-center overflow-hidden',
         { 'ring-2 ring-[#a8192e]': active }
       )}
-      style={{ background: '#111' }}
+      style={{ background: '#111', padding: '16px' }}
     >
       {props.src ? (
         useFourthwallImages && transformedSrc ? (
@@ -46,9 +46,10 @@ export function GridTileImage({
             width={props.width as number}
             height={props.height as number}
             loading={props.priority ? 'eager' : 'lazy'}
+            style={{ background: '#111' }}
           />
         ) : (
-          <Image className={imgClass} {...props} />
+          <Image className={imgClass} style={{ background: '#111' }} {...props} />
         )
       ) : null}
 
