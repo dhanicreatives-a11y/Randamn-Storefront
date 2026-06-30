@@ -36,7 +36,7 @@ export async function Navbar({ currency }: { currency: string }) {
           fontSize: 10,
           textTransform: 'uppercase',
           letterSpacing: '0.2em',
-          color: '#555'
+          color: '#888'
         }}
       >
         about

@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 const titleStyle: React.CSSProperties = {
   fontSize: 10,
-  color: '#444',
+  color: '#888',
   letterSpacing: '0.2em',
   textTransform: 'uppercase',
   display: 'flex',

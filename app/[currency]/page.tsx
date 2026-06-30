@@ -38,7 +38,7 @@ export default async function HomePage({ params }: { params: Promise<{ currency:
         padding: '10px 20px',
         borderBottom: '1px solid #1a1a1a',
         fontSize: 9,
-        color: '#444',
+        color: '#888',
         letterSpacing: '0.2em',
         textTransform: 'uppercase',
         whiteSpace: 'nowrap',
@@ -81,7 +81,7 @@ export default async function HomePage({ params }: { params: Promise<{ currency:
         </p>
         <p style={{
           fontSize: 9,
-          color: '#444',
+          color: '#888',
           letterSpacing: '0.2em',
           textTransform: 'uppercase',
           marginTop: 16

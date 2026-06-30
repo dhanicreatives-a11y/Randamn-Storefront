@@ -46,14 +46,10 @@ button {
   @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#a8192e] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0d0d0d];
 }
 
-/* Asymmetric product grid — desktop only */
-@media (min-width: 768px) {
-  .randamn-grid > *:nth-child(5n + 1) {
-    grid-column: span 2;
-    aspect-ratio: 2 / 1;
-  }
-  .randamn-grid > *:nth-child(7n + 3) {
-    grid-column: span 2;
-    aspect-ratio: 2 / 1;
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
   }
 }

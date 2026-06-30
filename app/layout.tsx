@@ -16,7 +16,7 @@ const twitterSite = TWITTER_SITE ? ensureStartsWith(TWITTER_SITE, 'https://') : 
 export const metadata = {
   metadataBase: new URL(baseUrl),
   title: {
-    default: 'Store'
+    default: 'RANDAMN — wear the accident'
   },
   robots: {
     follow: true,

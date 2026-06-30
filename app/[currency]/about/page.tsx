@@ -17,7 +17,7 @@ export default async function AboutPage({
 
   const label: React.CSSProperties = {
     fontSize: 9,
-    color: '#444',
+    color: '#888',
     letterSpacing: '0.25em',
     textTransform: 'uppercase',
     marginBottom: 12
@@ -45,7 +45,7 @@ export default async function AboutPage({
 
   const colLabel: React.CSSProperties = {
     fontSize: 9,
-    color: '#444',
+    color: '#888',
     letterSpacing: '0.25em',
     textTransform: 'uppercase',
     minWidth: 140,

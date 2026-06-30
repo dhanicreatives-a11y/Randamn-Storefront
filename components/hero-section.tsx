@@ -21,6 +21,7 @@ export function HeroSection() {
   const [scrollY, setScrollY] = useState(0);
 
   useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     const handleScroll = () => setScrollY(window.scrollY);
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
@@ -91,7 +92,7 @@ export function HeroSection() {
       }}>RANDAMN</div>
 
       {/* red splatter top right */}
-      <svg style={{position:'absolute',top:24,right:24,width:80,height:80,zIndex:2}} viewBox="0 0 100 100">
+      <svg aria-hidden="true" focusable="false" style={{position:'absolute',top:24,right:24,width:80,height:80,zIndex:2}} viewBox="0 0 100 100">
         <path fill="#A8192E" d="M50 8C56 4,64 10,68 7C72 4,74 14,80 16C86 18,84 28,88 33C92 38,86 44,86 50C86 56,92 62,88 67C84 72,86 82,80 84C74 86,72 96,68 93C64 90,56 96,50 92C44 88,36 94,32 90C28 86,26 76,20 74C14 72,16 62,12 57C8 52,14 44,14 38C14 32,8 24,14 20C20 16,18 6,24 8C30 10,32 2,38 6C44 10,44 4,50 8Z"/>
       </svg>
 
@@ -126,7 +127,7 @@ export function HeroSection() {
         transform: 'rotate(2deg)',
         zIndex: 2
       }}>
-        <p style={{fontSize:9,color:'#444',letterSpacing:'0.2em',textTransform:'uppercase'}}>latest drop</p>
+        <p style={{fontSize:9,color:'#888',letterSpacing:'0.2em',textTransform:'uppercase'}}>latest drop</p>
         <p style={{fontSize:32,fontWeight:900,color:'#F5F5F5',lineHeight:1}}>001</p>
         <p style={{fontSize:9,color:'#A8192E',letterSpacing:'0.1em'}}>no schedule. ever.</p>
       </div>
